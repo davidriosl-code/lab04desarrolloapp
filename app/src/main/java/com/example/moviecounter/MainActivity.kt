@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -35,6 +36,13 @@ class MainActivity : ComponentActivity() {
 fun DemoCard() {
     Card {
         Text(text = "Contenedor Card")
+    }
+}
+
+@Composable
+fun DemoButton() {
+    Button(onClick = { }) {
+        Text("Boton de prueba")
     }
 }
 
