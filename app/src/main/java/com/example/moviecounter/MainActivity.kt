@@ -10,6 +10,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,6 +45,15 @@ fun DemoButton() {
     Button(onClick = { }) {
         Text("Boton de prueba")
     }
+}
+
+@Composable
+fun DemoTextField() {
+    TextField(
+        value = "",
+        onValueChange = { },
+        label = { Text("Texto") }
+    )
 }
 
 @Composable
