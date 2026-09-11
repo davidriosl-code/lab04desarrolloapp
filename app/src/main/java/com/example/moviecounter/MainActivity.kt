@@ -12,11 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,9 +39,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MovieCounter(modifier: Modifier = Modifier) {
-    // Definición de estados con rememberSaveable para persistencia en rotación
-    var count by rememberSaveable { mutableStateOf(0) }
-    var movieName by rememberSaveable { mutableStateOf("") }
+    // Definición de estado con remember
+    var count by remember { mutableStateOf(0) }
 
     Column(
         modifier = modifier.padding(16.dp),
@@ -50,21 +48,7 @@ fun MovieCounter(modifier: Modifier = Modifier) {
     ) {
         Text(text = "You have added $count movies.")
         Spacer(modifier = Modifier.height(16.dp))
-
-        TextField(
-            value = movieName,
-            onValueChange = { movieName = it },
-            label = { Text("Movie Name") }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            if (movieName.isNotBlank()) {
-                count++
-                movieName = ""
-            }
-        }) {
+        Button(onClick = { count++ }) {
             Text("Add Movie")
         }
     }
